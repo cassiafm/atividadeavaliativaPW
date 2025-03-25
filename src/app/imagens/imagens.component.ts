@@ -1,0 +1,48 @@
+import { Component, Input } from '@angular/core';
+import { FraseComponent } from '../frase/frase.component';
+
+@Component({
+  selector: 'app-imagens',
+  imports: [FraseComponent],
+  templateUrl: './imagens.component.html',
+  styleUrl: './imagens.component.css'
+})
+export class ImagensComponent {
+
+  frases = [
+      "Bom dia! Desejo que a sua manhã seja tão bela e especial quanto você e o seu coração.",
+      "Você é especial para mim, então merece um bom dia exclusivo e cheio de carinho!",
+      "Que seu dia seja leve e doce. Que traga amor, sorrisos e energia positiva.",
+      "Olha o que temos aqui: um novo dia! É uma nova oportunidade para fazer coisas incríveis.",
+      "Um lindo dia, começando com café da manhã, música, boas energias, bom humor, pessoas de bem e gratidão.",
+      "A capacidade de enxergar a beleza em cada amanhecer é um alimento que nos dá energia para o dia todo.",
+      "Bom dia para aqueles que acordam com o coração cheio de esperança e a mente repleta de sonhos. ",
+      "Que cada desafio seja superado com determinação e coragem neste novo dia e que a gratidão invada o seu coração. Bom dia, guerreiro!",
+      "O coração é o músculo mais forte.",
+      "Renove sua fé e suas forças,porque hoje é um novo dia!"
+    ]
+
+    random(){
+      return Math.floor(Math.random() * 10)
+    }
+
+    mostrarFrases = this.frases[this.random()]
+    @Input() visibilidade : boolean = false;
+  imagemaberta = "biscoitoaberto.png"
+  imagemfechada = "biscoitofechado.png"
+
+  imagemAtual(){
+    return this.imagemfechada
+
+  }
+
+  mudarImagem(){
+    this.imagemfechada = this.imagemaberta
+    this.visibilidade = true
+  }
+
+  reiniciar(){
+    this.visibilidade = false
+
+  }
+}
